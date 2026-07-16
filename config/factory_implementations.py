@@ -86,8 +86,29 @@ class TestSpecificParametersFactory(ParametersFactory):
         params.num_steps = 25
         return params
     
+#%% Demo Parameter Sets
+
+@register_parameters("campaignDemoSize02")
+class DemoSize02ParametersFactory(ParametersFactory):
+    """ Factory for teams of 2. Anchors team size normalization for analysis."""
+    def create_parameters(self) -> Parameters:
+        params = ParametersSize02()
+        params.agent_optim_type = ['random_walk']
+        params.num_trials = 2
+        return params
+
+@register_parameters("campaignDemoDefault")
+class DemoDefaultParametersFactory(ParametersFactory):
+    """ Factory for teams of 8 and 16 with the full graph, task, and bound grid."""
+    def create_parameters(self) -> Parameters:
+        params = Parameters()
+        params.team_size = [8, 16]
+        params.agent_optim_type = ['random_walk']
+        params.num_trials = 2
+        return params
+
 #%% Large Test (Rehearsal) Parameter Sets
-        
+
 @register_parameters("campaignRehearsalDefault")
 class RehearsalDefaultParametersFactory(ParametersFactory):
     """ Factory for campaign testing."""

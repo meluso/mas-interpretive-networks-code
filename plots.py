@@ -1,6 +1,7 @@
 # plots.py
 """Generate all figures for the paper and supplement from saved analysis results."""
 
+import argparse
 import logging
 import time
 from pathlib import Path
@@ -50,10 +51,21 @@ def generate_all_figures(main_study, supplement_studies):
 
 if __name__ == '__main__':
     setup_logging()
-    main_study = 'aiteams01nm_20250128_223001'
-    supplement_studies = [
-        'aiteams01lb_20250130_210957',
-        'aiteams01rw_20250321_215818',
-        'aiteams01da_20251202_192855'
-    ]
-    generate_all_figures(main_study, supplement_studies)
+    parser = argparse.ArgumentParser(description='Generate figures from saved analysis results')
+    parser.add_argument(
+        '--study_name',
+        type=str,
+        default=None,
+        help='Generate figures for this study only (default: all paper studies)'
+    )
+    args = parser.parse_args()
+    if args.study_name:
+        plot_main_paper(args.study_name)
+    else:
+        main_study = 'aiteams01nm_20250128_223001'
+        supplement_studies = [
+            'aiteams01lb_20250130_210957',
+            'aiteams01rw_20250321_215818',
+            'aiteams01da_20251202_192855'
+        ]
+        generate_all_figures(main_study, supplement_studies)

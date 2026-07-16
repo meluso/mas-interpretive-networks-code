@@ -16,6 +16,10 @@ STUDY_CAMPAIGNS: Dict[str, List[str]] = {
     'test_specific': [
         'TestSpecific'
         ],
+    'demo': [
+        'DemoSize02',
+        'DemoDefault'
+        ],
     'rehearsal': [
         'RehearsalSize01',
         'RehearsalSize02',

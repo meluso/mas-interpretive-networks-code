@@ -34,7 +34,6 @@ def filter_by_significance(df, alpha=0.01):
 
 def set_fonts(extra_params={}):
     params = {
-        'font.family': 'Times New Roman',
         'mathtext.fontset': 'cm',
         'legend.fontsize': 8,
         'axes.labelsize': 8,
@@ -43,6 +42,10 @@ def set_fonts(extra_params={}):
         'ytick.labelsize': 8,
         'figure.titlesize': 8
         }
+    # Request Times New Roman only if installed (avoids findfont warnings)
+    from matplotlib import font_manager
+    if any(f.name == 'Times New Roman' for f in font_manager.fontManager.ttflist):
+        params['font.family'] = 'Times New Roman'
     for key, value in extra_params.items():
         params[key] = value
     pylab.rcParams.update(params)
@@ -179,5 +182,7 @@ def save_fig(name, dpi=1200, fig_type=None, **kwargs):
 
 def get_optimizer(study_name):
     """Extract optimizer code from study name."""
+    if study_name.startswith('demo'):
+        return 'demo'
     # Extract characters 9-10 from study name (0-indexed positions 9-10)
     return study_name[9:11]

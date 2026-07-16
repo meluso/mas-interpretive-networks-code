@@ -108,7 +108,7 @@ class StudyManager:
         self.logger.info(f"  Total trials: {total_trials}")
         
         # Create writer for single process
-        writer = TrialWriter(self.output_dir, 0)
+        writer = TrialWriter(self.output_dir)
         
         # Execute trials sequentially
         trial_ids = []

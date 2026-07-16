@@ -1,6 +1,7 @@
 # analysis.py
 """Run all analyses for a specified raw dataset."""
 
+import argparse
 import logging
 import time
 from pathlib import Path
@@ -50,11 +51,19 @@ def run_analyses(study_name):
 
 if __name__ == '__main__':
     setup_logging()
-    studies = [
-        'aiteams01nm_20250128_223001',
-        'aiteams01lb_20250130_210957',
-        'aiteams01rw_20250321_215818',
-        'aiteams01da_20251202_192855'
-    ]
-    for study_name in studies:
+    parser = argparse.ArgumentParser(description='Run all analyses for raw datasets')
+    parser.add_argument(
+        '--study_name',
+        type=str,
+        nargs='+',
+        default=[
+            'aiteams01nm_20250128_223001',
+            'aiteams01lb_20250130_210957',
+            'aiteams01rw_20250321_215818',
+            'aiteams01da_20251202_192855'
+        ],
+        help='Raw dataset directory name(s) under data/raw (default: paper studies)'
+    )
+    args = parser.parse_args()
+    for study_name in args.study_name:
         run_analyses(study_name)

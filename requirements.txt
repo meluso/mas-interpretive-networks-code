@@ -1,0 +1,15 @@
+# Pip fallback for the conda environment in environment.yml.
+# Tested with Python 3.12.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.14.1
+scikit-learn==1.6.1
+networkx==3.3
+matplotlib==3.9.2
+seaborn==0.13.2
+h5py==3.12.1
+pyarrow==17.0.0
+dask[dataframe]==2024.8.2
+dask-ml==2024.4.4
+psutil==5.9.0
+pytest==7.4.4

@@ -1,7 +1,7 @@
 # Code: Artificial collectives of specialists and generalists excel at different tasks
 
 This repository contains code in support of the following paper:
-<bib info>
+Meluso, J., Hébert-Dufresne, L., Riedl, C., & Gao, H. O. (2026). Artificial collectives of specialists and generalists excel at different tasks. arXiv. https://arxiv.org/abs/2606.20877
 
 The accompanying data can be found in the following archive:
 Meluso, J., Hébert-Dufresne, L., Riedl, C., & Gao, H. O. (2026). Dataset: Artificial collectives of specialists and generalists excel at different tasks [Data set]. Zenodo. https://doi.org/10.5281/zenodo.19682737
